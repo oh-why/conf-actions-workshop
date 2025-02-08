@@ -1,5 +1,7 @@
 on: [push]
 
+name: test
+
 jobs:
   check_style:
     runs-on: ubuntu-latest
@@ -14,4 +16,17 @@ jobs:
         pip install pycodestyle
     - name: Analysing the code with pycodestyle
       run: pycodestyle .
-  
+
+  test_own_api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Run tests
+        run: pytest tests
