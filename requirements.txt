@@ -1,5 +1,6 @@
 fastapi==0.115.7
 uvicorn==0.34.0
+httpx==0.28.1
 pydantic==2.10.6
 pycodestyle==2.12.1
 pytest==8.3.4
