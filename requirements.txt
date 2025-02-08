@@ -1,0 +1,8 @@
+fastapi==0.115.7
+uvicorn==0.34.0
+pydantic==2.10.6
+pycodestyle==2.12.1
+pytest==8.3.4
+pytest-randomly==3.15.0
+requests==2.32.3
+pyhamcrest==2.1.0
