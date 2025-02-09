@@ -17,7 +17,7 @@ jobs:
         run: |
           pip install -r requirements.txt
       - name: Run tests
-        run: pytest tests_external/test_external_api.py
+        run: pytest tests_external/test_external_api.py -v
 
   test_ui:
     runs-on: ubuntu-latest
@@ -32,4 +32,4 @@ jobs:
       - name: Install browser
         run: python -m playwright install chromium --with-deps
       - name: Run tests
-        run: pytest tests_external/test_external_ui.py
+        run: pytest tests_external/test_external_ui.py -v
