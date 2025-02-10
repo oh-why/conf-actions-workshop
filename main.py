@@ -35,7 +35,7 @@ def get_note(note_id: int) -> dict | Note:
         return found[0]
 
 
-@app.post("/notes")
+@app.post("/note")
 async def create_note(note: NoteCreate) -> Note:
     data = {
         "id": max(x.id for x in notes_db) + 1,
