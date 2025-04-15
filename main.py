@@ -1,6 +1,5 @@
 import uvicorn
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
 from src.models import *
 
 
@@ -8,13 +7,6 @@ app = FastAPI(title="sample project")
 
 notes_db = [Note(id=1, created_by="admin", content="test"),
             Note(id=2, created_by="admin", content="test", tags=["kdfmkef"])]
-
-
-@app.get("/")
-async def root():
-    # uvicorn main:app --reload --port 8080
-    # http://127.0.0.1:8000/docs
-    return FileResponse("src/index.html")
 
 
 @app.get("/notes")
