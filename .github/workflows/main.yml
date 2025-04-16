@@ -28,3 +28,31 @@ jobs:
         run: pip install -r requirements.txt
       - name: check style
         run: pycodestyle .
+
+  test_api_external:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Test API
+        run: pytest test_external/test_external_api.py -v
+
+  test_ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Install browse
+        run: python -m playwright install chromium --with-deps
+      - name: Test API
+        run: pytest test_external/test_external_ui.py -v
