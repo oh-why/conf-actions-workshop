@@ -18,7 +18,7 @@ def get_all_notes(skip: int = 0, limit: int = 10) -> dict:
     return data
 
 
-@app.get("/notes/{note_id}")
+@app.get("/not/{note_id}")
 def get_note(note_id: int) -> dict | Note:
     found = [x for x in notes_db if x.id == note_id]
     if len(found) == 0:
